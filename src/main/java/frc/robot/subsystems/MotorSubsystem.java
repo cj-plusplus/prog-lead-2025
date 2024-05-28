@@ -35,23 +35,21 @@ public class MotorSubsystem extends SubsystemBase {
   }
 
   public void stopMotor() {
-    // Motor is stopped
-    motor.stopMotor();
-  }
-  @Override
-  public void periodic() {
-
-    // Checks if target time (5 seconds) has passed
-    if (timer.hasElapsed(Constants.desiredTime)) {
-
-      /*
+    /*
        * Motor is stopped, and timer is stopped and reset so that it can be reused
        * in the future. This means that as long as the color sensor sees red,
        * the motor will continue to run in 5-second intervals.
        */
-      motor.stopMotor();
-      timer.stop();
-      timer.reset();
+    motor.stopMotor();
+    timer.stop();
+    timer.reset();
+  }
+  @Override
+  public void periodic() {
+    // Checks if target time (5 seconds) has passed
+    if (timer.hasElapsed(Constants.desiredTime)) {
+      // See comments on stopMotor() method
+      stopMotor();
     }
   }
 }

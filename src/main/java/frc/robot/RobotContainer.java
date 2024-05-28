@@ -5,7 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Commands;
-import frc.robot.commands.DetectColor;
+import frc.robot.commands.ReactToColor;
 import frc.robot.subsystems.ColorSensorSubsystem;
 import frc.robot.subsystems.MotorSubsystem;
 import frc.robot.subsystems.SolenoidSubsystem;
@@ -34,6 +34,6 @@ public class RobotContainer {
   private void configureBindings() {}
 
   public void teleopInit() {
-    Commands.run(() -> new DetectColor(m_colorSensorSubsystem,m_solenoidSubsystem,m_motorSubsystem),m_colorSensorSubsystem,m_solenoidSubsystem,m_motorSubsystem);
+    Commands.run(() -> new ReactToColor(m_colorSensorSubsystem,m_solenoidSubsystem,m_motorSubsystem),m_colorSensorSubsystem,m_solenoidSubsystem,m_motorSubsystem);
   }
 }
